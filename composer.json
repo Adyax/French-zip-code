@@ -1,7 +1,7 @@
 {
-    "name": "Adyax/French-Zip-Code",
+    "name": "adyax/french-zip-code",
     "description": "",
-    "keywords": ["French-Zip-Code"],
+    "keywords": ["Zip Code", "France", "departments", "regions", "insee", "pays", "ville"],
     "license": "MIT",
     "type": "project",
     "require": {
