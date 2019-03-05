@@ -3,7 +3,7 @@
     "description": "",
     "keywords": ["Zip Code", "France", "departments", "regions", "insee", "pays", "ville"],
     "license": "MIT",
-    "type": "project",
+    "type": "library",
     "require": {
         "php": ">=7.0.0",
         "fideloper/proxy": "~3.3",
