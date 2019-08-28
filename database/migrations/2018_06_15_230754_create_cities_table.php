@@ -18,6 +18,7 @@ class CreateCitiesTable extends Migration
             $table->string('zip_code', 5)->nullable();
             $table->string('name', 255);
             $table->string('slug', 255);
+            $table->boolean('old')->default(false);
             $table->float('gps_lat', 16, 14);
             $table->float('gps_lng', 17, 14);
             $table->boolean('multi')->default(false);

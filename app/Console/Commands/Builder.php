@@ -33,9 +33,10 @@ class Builder extends Command
      * @var array
      */
     protected $patterns = [
-        'regions'     => '/([\d]{2})(?:\t[\d\w]+){2}(?:.*)\t(.*)/',
+        'regions'     => '/([\d]{2})(?:\t([0-9]+))?(?:\t[\d\w]+){2}(?:.*)\t(.*)/',
         'departments' => '/([\d]{2})\t([\d\w]{2,3})(?:\t[\d\w]+){2}(?:.*)\t(.*)/',
         'cities'      => '/(?:\t|[\d]+\t){1,3}([\d\w]{2,3})\t([\d]{2,3})(?:.*)/',
+        'cities_1943'      => '/(?:\d)?\t(?:\d)?\t(?:\d)?\t\d?(\t|[\d]+\t){1,3}([\d\w]{2,3})(?:.*)/',
     ];
 
     /**
@@ -53,14 +54,16 @@ class Builder extends Command
      */
     protected function newEntryRegion(array $data)
     {
+        $data = $this->cleanArray($data);
         if (0 != Regions::where('code', '=', $data[1])->count()) {
             return false;
         }
 
         Regions::create([
             'code' => $data[1],
-            'name' => $data[2],
-            'slug' => str_slug($data[2], ' '),
+            'cheflieu' => $data[2],
+            'name' => $data[3],
+            'slug' => str_slug($data[3], ' '),
         ]);
     }
 
@@ -71,6 +74,7 @@ class Builder extends Command
      */
     protected function newEntryDepartment(array $data)
     {
+        $data = $this->cleanArray($data);
         if (0 != Departments::where('code', '=', $data[2])->count()) {
             return false;
         }
@@ -90,6 +94,7 @@ class Builder extends Command
      */
     protected function newEntryCity(array $data)
     {
+        $data = $this->cleanArray($data);
         if (0 != Cities::where('insee_code', '=', $data[1].$data[2])->count()) {
             return false;
         }
@@ -107,6 +112,7 @@ class Builder extends Command
                 'zip_code'        => $code,
                 'name'            => $response['name'],
                 'slug'            => str_slug(str_replace(["'", '"', '’'], ' ', $response['name']), ' '),
+                'old'             => $data['old'] ?? false,
                 'gps_lat'         => $response['lat'],
                 'gps_lng'         => $response['lng'],
                 'multi'           => $multi,
@@ -138,6 +144,20 @@ class Builder extends Command
         ]);
     }
 
+    public static function readFile($filepath) {
+      $file = file_get_contents($filepath);
+      $file = iconv('ISO-8859-1', 'UTF8//IGNORE', $file);
+      return $file;
+    }
+
+    public static function cleanArrayTrimCb($element) {
+      return trim($element, "\r\n\t ");
+    }
+
+    public static function cleanArray(array $data) {
+      return array_map([static::class, 'cleanArrayTrimCb'], $data);
+    }
+
     /**
      * Execute the console command.
      *
@@ -145,11 +165,10 @@ class Builder extends Command
      */
     public function handle()
     {
-        $file = file_get_contents('storage/builder/regions.txt');
+        $file = $this->readFile('storage/builder/regions.txt');
         preg_match_all($this->patterns['regions'], $file, $regions, PREG_SET_ORDER);
 
         $bar = $this->output->createProgressBar(count($regions));
-
         foreach ($regions as $data) {
             $this->newEntryRegion($data);
             $bar->advance();
@@ -158,7 +177,7 @@ class Builder extends Command
         $bar->finish();
         $this->info("\n".'The regions has been generated');
 
-        $file = file_get_contents('storage/builder/departments.txt');
+        $file = $this->readFile('storage/builder/departments.txt');
         preg_match_all($this->patterns['departments'], $file, $departments, PREG_SET_ORDER);
 
         $bar = $this->output->createProgressBar(count($departments));
@@ -171,7 +190,7 @@ class Builder extends Command
         $bar->finish();
         $this->info("\n".'The departments has been generated');
 
-        $file = file_get_contents('storage/builder/cities.txt');
+        $file = $this->readFile('storage/builder/cities.txt');
         preg_match_all($this->patterns['cities'], $file, $cities, PREG_SET_ORDER);
 
         $bar = $this->output->createProgressBar(count($cities));
@@ -183,6 +202,21 @@ class Builder extends Command
 
         $bar->finish();
         $this->info("\n".'The cities has been generated');
+
+        // Try importing older cities
+        $file = $this->readFile('storage/builder/cities_1943.txt');
+        preg_match_all($this->patterns['cities_1943'], $file, $cities, PREG_SET_ORDER);
+
+        $bar = $this->output->createProgressBar(count($cities));
+
+        foreach ($cities as $data) {
+          $data['old'] = true;
+          $this->newEntryCity($data);
+          $bar->advance();
+        }
+
+        $bar->finish();
+        $this->info("\n".'The cities since 1943 has been generated');
 
         $multiCities = Cities::where('multi', '=', 1)
             ->with('department')

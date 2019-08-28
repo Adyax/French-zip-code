@@ -25,7 +25,7 @@ class Export extends Command
     protected $description = 'Export the build to files';
 
     protected $headers = [
-        'Regions'     => ['id', 'code', 'name', 'slug'],
+        'Regions'     => ['id', 'cheflieu', 'code', 'name', 'slug'],
         'Departments' => ['id', 'region_code', 'code', 'name', 'slug'],
         'Cities'      => ['id', 'department_code', 'insee_code', 'zip_code', 'name', 'slug', 'gps_lat', 'gps_lng'],
     ];

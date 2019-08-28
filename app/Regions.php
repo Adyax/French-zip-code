@@ -26,7 +26,7 @@ class Regions extends Model
      * @var array
      */
     protected $fillable = [
-        'code', 'name', 'slug',
+        'code', 'cheflieu', 'name', 'slug',
     ];
 
     /**
