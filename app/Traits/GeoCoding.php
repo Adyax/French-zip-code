@@ -29,8 +29,8 @@ trait GeoCoding
         return [
             'name'  => $response->nom,
             'codes' => $response->codesPostaux,
-            'lat'   => $response->centre->coordinates[1],
-            'lng'   => $response->centre->coordinates[0],
+            'lat'   => $response->centre->coordinates[1] ?? 0,
+            'lng'   => $response->centre->coordinates[0] ?? 0,
         ];
     }
 
