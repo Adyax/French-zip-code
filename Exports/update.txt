@@ -6,6 +6,6 @@
 updated = 2019-08-29T00:00:00+00:00
 
 # Version of the data
-version = 1.0.1
+version = 1.0.2
 
 
