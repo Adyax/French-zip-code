@@ -41,6 +41,59 @@ trait GeoCoding
      *
      * @return array
      */
+    public function geocodeByNameViaGoogle($name)
+    {
+      $googleMaps = new GoogleMaps();
+      try {
+        $response = $googleMaps->load('geocoding')
+          ->setParam([
+            'address'     => $name,
+            'components'  => [
+              'country' => 'FR',
+            ],
+          ])
+          ->get();
+      }
+      catch (\Exception $e) {
+        return false;
+      }
+      $response = json_decode($response);
+
+      if ('OK' !== $response->status) {
+        return false;
+      }
+
+      $result_normal = [];
+      foreach ($response->results[0]->address_components as $component) {
+        if (in_array('sublocality_level_1', $component->types)) {
+          $result_normal['name'] = $component->long_name;
+        }
+        elseif (!isset($result_normal['name']) && in_array('locality', $component->types)) {
+          $result_normal['name'] = $component->long_name;
+        }
+        elseif (in_array('postal_code', $component->types)) {
+          $result_normal['codes'] = [$component->long_name];
+        }
+      }
+
+      // We don't collect cities without zipcodes.
+      if (empty($result_normal['codes']) || empty($result_normal['name'])) {
+        return false;
+      }
+
+      $result_normal['lat'] = $response->results[0]->geometry->location->lat;
+      $result_normal['lng'] = $response->results[0]->geometry->location->lng;
+
+      return $result_normal;
+    }
+
+    /**
+     * Get the correct GPS data for a city sub-zipcode.
+     *
+     * @param App\Cities $address
+     *
+     * @return array
+     */
     public function correctCityGPS(Cities $city)
     {
         $googleMaps = new GoogleMaps();

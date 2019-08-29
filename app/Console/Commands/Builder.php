@@ -13,6 +13,8 @@ class Builder extends Command
 {
     use GeoCoding;
 
+    const CITY_CACHEFILE = 'storage/builder/city_cache.txt';
+
     /**
      * The name and signature of the console command.
      *
@@ -26,6 +28,9 @@ class Builder extends Command
      * @var string
      */
     protected $description = 'Launch the build';
+
+    protected $cacheCity = [];
+    protected $cacheCityFp = NULL;
 
     /**
      * The patterns used for explode the files.
@@ -45,9 +50,18 @@ class Builder extends Command
     public function __construct()
     {
         parent::__construct();
+        if (file_exists(static::CITY_CACHEFILE)) {
+          $this->cacheCity = file(static::CITY_CACHEFILE);
+        }
+
+        $this->cacheCityFp = fopen(static::CITY_CACHEFILE, 'a');
     }
 
-    /**
+    public function __destruct() {
+      fclose($this->cacheCityFp);
+    }
+
+  /**
      * Save a new entry of a region.
      *
      * @param array $data
@@ -87,6 +101,28 @@ class Builder extends Command
         ]);
     }
 
+    public function cityCacheCheckIsBad($code_insee) {
+      if (false !== ($key = array_search($code_insee, $this->cacheCity))) {
+        return true;
+      }
+
+      return false;
+    }
+
+    public function cityCacheWriteBad($code_insee) {
+      $this->cacheCity[] = $code_insee;
+      fwrite($this->cacheCityFp, $code_insee . "\n");
+    }
+
+    public function fgets_csv_utf8($fp, $length = 10000) {
+      if ($line = fgets($fp, $length)) {
+        $line = iconv('ISO-8859-1', 'UTF8//IGNORE', $line);
+        $line = str_getcsv($line, "\t");
+      }
+
+      return $line;
+    }
+
     /**
      * Save a new entry of a city.
      *
@@ -95,20 +131,32 @@ class Builder extends Command
     protected function newEntryCity(array $data)
     {
         $data = $this->cleanArray($data);
-        if (0 != Cities::where('insee_code', '=', $data[1].$data[2])->count()) {
+        $insee_code = $data[3].$data[4];
+        $name = $data[11];
+
+        // Check that this city can't be geocoded.
+        if ($this->cityCacheCheckIsBad($insee_code)) {
+          return false;
+        }
+
+        if (0 != Cities::where('insee_code', '=', $insee_code)->count()) {
             return false;
         }
 
-        $response = $this->geoCodingCity($data[1].$data[2]);
-        if (false === $response) {
+        if (
+          false === ($response = $this->geoCodingCity($insee_code))
+          &&
+          false === ($response = $this->geocodeByNameViaGoogle($name))
+        ) {
+            $this->cityCacheWriteBad($insee_code);
             return false;
         }
 
         $multi = (1 != count($response['codes'])) ?? false;
         foreach ($response['codes'] as $code) {
             Cities::create([
-                'department_code' => $data[1],
-                'insee_code'      => $data[1].$data[2],
+                'department_code' => $data[3],
+                'insee_code'      => $insee_code,
                 'zip_code'        => $code,
                 'name'            => $response['name'],
                 'slug'            => str_slug(str_replace(["'", '"', '’'], ' ', $response['name']), ' '),
@@ -144,7 +192,7 @@ class Builder extends Command
         ]);
     }
 
-    public static function readFile($filepath) {
+    public function readFile($filepath) {
       $file = file_get_contents($filepath);
       $file = iconv('ISO-8859-1', 'UTF8//IGNORE', $file);
       return $file;
@@ -190,29 +238,52 @@ class Builder extends Command
         $bar->finish();
         $this->info("\n".'The departments has been generated');
 
-        $file = $this->readFile('storage/builder/cities.txt');
-        preg_match_all($this->patterns['cities'], $file, $cities, PREG_SET_ORDER);
+        // Cities.
+        $filename = 'storage/builder/cities.txt';
+        $fp = fopen($filename, 'r');
 
-        $bar = $this->output->createProgressBar(count($cities));
+        //preg_match_all($this->patterns['cities'], $file, $cities, PREG_SET_ORDER);
 
-        foreach ($cities as $data) {
+        $bar = $this->output->createProgressBar(filesize($filename));
+
+        // Skip header.
+        $this->fgets_csv_utf8($fp);
+        while ($data = $this->fgets_csv_utf8($fp)) {
             $this->newEntryCity($data);
-            $bar->advance();
+            $bar->setProgress(ftell($fp));
         }
+
+        fclose($fp);
 
         $bar->finish();
         $this->info("\n".'The cities has been generated');
 
         // Try importing older cities
-        $file = $this->readFile('storage/builder/cities_1943.txt');
-        preg_match_all($this->patterns['cities_1943'], $file, $cities, PREG_SET_ORDER);
+        $filename = 'storage/builder/cities_1943.txt';
+        $fp = fopen($filename, 'r');
+        // preg_match_all($this->patterns['cities_1943'], $file, $cities, PREG_SET_ORDER);
 
-        $bar = $this->output->createProgressBar(count($cities));
+        $bar = $this->output->createProgressBar(filesize($filename));
+        $bar->setMessage('Imporing cities_1943.txt');
 
-        foreach ($cities as $data) {
-          $data['old'] = true;
-          $this->newEntryCity($data);
-          $bar->advance();
+        // Skip header.
+        $this->fgets_csv_utf8($fp);
+        while ($data = $this->fgets_csv_utf8($fp)) {
+          $old_city = [
+            3 => $data[5], // Departement
+            4 => $data[6], // Commune
+            11 => $data[15], // Name of the commune
+            'old' => true,
+          ];
+
+          try {
+            $this->newEntryCity($old_city);
+          }
+          catch (\Exception $e) {
+            // Error.
+          }
+
+          $bar->setProgress(ftell($fp));
         }
 
         $bar->finish();
@@ -238,7 +309,7 @@ class Builder extends Command
         $bar->finish();
         $this->info("\n".'The cities whith multi zip-code have their GPS coordonate corrected');
 
-        $this->newEntryRegion([null, 'COM', "Collectivités d'Outre-Mer"]);
+        $this->newEntryRegion([null,'COM', 0, "Collectivités d'Outre-Mer"]);
 
         $data = $this->getCOMListe();
         $com_list = $data['data'];
