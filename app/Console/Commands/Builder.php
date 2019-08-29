@@ -166,6 +166,7 @@ class Builder extends Command
                 'multi'           => $multi,
             ]);
         }
+
         usleep(500);
     }
 
@@ -238,6 +239,10 @@ class Builder extends Command
         $bar->finish();
         $this->info("\n".'The departments has been generated');
 
+
+        // $stats = DB::unprepared(file_get_contents('Exports/sql/cities.sql'));
+        // DB::statement('ALTER TABLE  `cities` ADD  `multi` BOOLEAN NOT NULL DEFAULT FALSE');
+        // return;
         // Cities.
         $filename = 'storage/builder/cities.txt';
         $fp = fopen($filename, 'r');
@@ -264,7 +269,7 @@ class Builder extends Command
         // preg_match_all($this->patterns['cities_1943'], $file, $cities, PREG_SET_ORDER);
 
         $bar = $this->output->createProgressBar(filesize($filename));
-        $bar->setMessage('Imporing cities_1943.txt');
+        $bar->setMessage('Importing cities_1943.txt');
 
         // Skip header.
         $this->fgets_csv_utf8($fp);
@@ -281,6 +286,7 @@ class Builder extends Command
           }
           catch (\Exception $e) {
             // Error.
+            $bar->setMessage('Error occured for ' . var_export($old_city, TRUE));
           }
 
           $bar->setProgress(ftell($fp));
@@ -355,6 +361,6 @@ class Builder extends Command
         $bar->finish();
         $this->info("\n".'The COM cities has been generated');
 
-        DB::statement('ALTER TABLE cities DROP COLUMN multi');
+        // DB::statement('ALTER TABLE cities DROP COLUMN multi');
     }
 }

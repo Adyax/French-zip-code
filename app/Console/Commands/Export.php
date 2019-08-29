@@ -69,6 +69,7 @@ class Export extends Command
         $this->saveCsvTable('Departments', $departments);
         $this->saveJsonTable('Departments', $departments);
 
+        $cities = Cities::where('insee_code', '=', '49005')->get();
         $cities = Cities::all();
         $this->saveCsvTable('Cities', $cities);
         $this->saveJsonTable('Cities', $cities);
