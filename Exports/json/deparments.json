@@ -1,0 +1,765 @@
+[
+    {
+        "code": "01",
+        "id": 1,
+        "name": "Ain",
+        "region_code": "82",
+        "slug": "ain"
+    },
+    {
+        "code": "02",
+        "id": 2,
+        "name": "Aisne",
+        "region_code": "22",
+        "slug": "aisne"
+    },
+    {
+        "code": "03",
+        "id": 3,
+        "name": "Allier",
+        "region_code": "83",
+        "slug": "allier"
+    },
+    {
+        "code": "04",
+        "id": 4,
+        "name": "Alpes-de-Haute-Provence",
+        "region_code": "93",
+        "slug": "alpes de haute provence"
+    },
+    {
+        "code": "05",
+        "id": 5,
+        "name": "Hautes-Alpes",
+        "region_code": "93",
+        "slug": "hautes alpes"
+    },
+    {
+        "code": "06",
+        "id": 6,
+        "name": "Alpes-Maritimes",
+        "region_code": "93",
+        "slug": "alpes maritimes"
+    },
+    {
+        "code": "07",
+        "id": 7,
+        "name": "Ardèche",
+        "region_code": "82",
+        "slug": "ardeche"
+    },
+    {
+        "code": "08",
+        "id": 8,
+        "name": "Ardennes",
+        "region_code": "21",
+        "slug": "ardennes"
+    },
+    {
+        "code": "09",
+        "id": 9,
+        "name": "Ariège",
+        "region_code": "73",
+        "slug": "ariege"
+    },
+    {
+        "code": "10",
+        "id": 10,
+        "name": "Aube",
+        "region_code": "21",
+        "slug": "aube"
+    },
+    {
+        "code": "11",
+        "id": 11,
+        "name": "Aude",
+        "region_code": "91",
+        "slug": "aude"
+    },
+    {
+        "code": "12",
+        "id": 12,
+        "name": "Aveyron",
+        "region_code": "73",
+        "slug": "aveyron"
+    },
+    {
+        "code": "13",
+        "id": 13,
+        "name": "Bouches-du-Rhône",
+        "region_code": "93",
+        "slug": "bouches du rhone"
+    },
+    {
+        "code": "14",
+        "id": 14,
+        "name": "Calvados",
+        "region_code": "25",
+        "slug": "calvados"
+    },
+    {
+        "code": "15",
+        "id": 15,
+        "name": "Cantal",
+        "region_code": "83",
+        "slug": "cantal"
+    },
+    {
+        "code": "16",
+        "id": 16,
+        "name": "Charente",
+        "region_code": "54",
+        "slug": "charente"
+    },
+    {
+        "code": "17",
+        "id": 17,
+        "name": "Charente-Maritime",
+        "region_code": "54",
+        "slug": "charente maritime"
+    },
+    {
+        "code": "18",
+        "id": 18,
+        "name": "Cher",
+        "region_code": "24",
+        "slug": "cher"
+    },
+    {
+        "code": "19",
+        "id": 19,
+        "name": "Corrèze",
+        "region_code": "74",
+        "slug": "correze"
+    },
+    {
+        "code": "21",
+        "id": 20,
+        "name": "Côte-d'Or",
+        "region_code": "26",
+        "slug": "cote dor"
+    },
+    {
+        "code": "22",
+        "id": 21,
+        "name": "Côtes-d'Armor",
+        "region_code": "53",
+        "slug": "cotes d armor"
+    },
+    {
+        "code": "23",
+        "id": 22,
+        "name": "Creuse",
+        "region_code": "74",
+        "slug": "creuse"
+    },
+    {
+        "code": "24",
+        "id": 23,
+        "name": "Dordogne",
+        "region_code": "72",
+        "slug": "dordogne"
+    },
+    {
+        "code": "25",
+        "id": 24,
+        "name": "Doubs",
+        "region_code": "43",
+        "slug": "doubs"
+    },
+    {
+        "code": "26",
+        "id": 25,
+        "name": "Drôme",
+        "region_code": "82",
+        "slug": "drome"
+    },
+    {
+        "code": "27",
+        "id": 26,
+        "name": "Eure",
+        "region_code": "23",
+        "slug": "eure"
+    },
+    {
+        "code": "28",
+        "id": 27,
+        "name": "Eure-et-Loir",
+        "region_code": "24",
+        "slug": "eure et loir"
+    },
+    {
+        "code": "29",
+        "id": 28,
+        "name": "Finistère",
+        "region_code": "53",
+        "slug": "finistere"
+    },
+    {
+        "code": "2A",
+        "id": 29,
+        "name": "Corse-du-Sud",
+        "region_code": "94",
+        "slug": "corse du sud"
+    },
+    {
+        "code": "2B",
+        "id": 30,
+        "name": "Haute-Corse",
+        "region_code": "94",
+        "slug": "haute corse"
+    },
+    {
+        "code": "30",
+        "id": 31,
+        "name": "Gard",
+        "region_code": "91",
+        "slug": "gard"
+    },
+    {
+        "code": "31",
+        "id": 22,
+        "name": "Haute-Garonne",
+        "region_code": "73",
+        "slug": "haute garonne"
+    },
+    {
+        "code": "32",
+        "id": 33,
+        "name": "Gers",
+        "region_code": "73",
+        "slug": "gers"
+    },
+    {
+        "code": "33",
+        "id": 34,
+        "name": "Gironde",
+        "region_code": "72",
+        "slug": "gironde"
+    },
+    {
+        "code": "34",
+        "id": 35,
+        "name": "Hérault",
+        "region_code": "91",
+        "slug": "herault"
+    },
+    {
+        "code": "35",
+        "id": 36,
+        "name": "Ille-et-Vilaine",
+        "region_code": "53",
+        "slug": "ille et vilaine"
+    },
+    {
+        "code": "36",
+        "id": 37,
+        "name": "Indre",
+        "region_code": "24",
+        "slug": "indre"
+    },
+    {
+        "code": "37",
+        "id": 38,
+        "name": "Indre-et-Loire",
+        "region_code": "24",
+        "slug": "indre et loire"
+    },
+    {
+        "code": "38",
+        "id": 39,
+        "name": "Isère",
+        "region_code": "82",
+        "slug": "isere"
+    },
+    {
+        "code": "39",
+        "id": 40,
+        "name": "Jura",
+        "region_code": "43",
+        "slug": "jura"
+    },
+    {
+        "code": "40",
+        "id": 41,
+        "name": "Landes",
+        "region_code": "72",
+        "slug": "landes"
+    },
+    {
+        "code": "41",
+        "id": 42,
+        "name": "Loir-et-Cher",
+        "region_code": "24",
+        "slug": "loir et cher"
+    },
+    {
+        "code": "42",
+        "id": 43,
+        "name": "Loire",
+        "region_code": "82",
+        "slug": "loire"
+    },
+    {
+        "code": "43",
+        "id": 44,
+        "name": "Haute-Loire",
+        "region_code": "83",
+        "slug": "haute loire"
+    },
+    {
+        "code": "44",
+        "id": 45,
+        "name": "Loire-Atlantique",
+        "region_code": "52",
+        "slug": "loire atlantique"
+    },
+    {
+        "code": "45",
+        "id": 46,
+        "name": "Loiret",
+        "region_code": "24",
+        "slug": "loiret"
+    },
+    {
+        "code": "46",
+        "id": 47,
+        "name": "Lot",
+        "region_code": "73",
+        "slug": "lot"
+    },
+    {
+        "code": "47",
+        "id": 48,
+        "name": "Lot-et-Garonne",
+        "region_code": "72",
+        "slug": "lot et garonne"
+    },
+    {
+        "code": "48",
+        "id": 49,
+        "name": "Lozère",
+        "region_code": "91",
+        "slug": "lozere"
+    },
+    {
+        "code": "49",
+        "id": 50,
+        "name": "Maine-et-Loire",
+        "region_code": "52",
+        "slug": "maine et loire"
+    },
+    {
+        "code": "50",
+        "id": 51,
+        "name": "Manche",
+        "region_code": "25",
+        "slug": "manche"
+    },
+    {
+        "code": "51",
+        "id": 52,
+        "name": "Marne",
+        "region_code": "21",
+        "slug": "marne"
+    },
+    {
+        "code": "52",
+        "id": 53,
+        "name": "Haute-Marne",
+        "region_code": "21",
+        "slug": "haute marne"
+    },
+    {
+        "code": "53",
+        "id": 54,
+        "name": "Mayenne",
+        "region_code": "52",
+        "slug": "mayenne"
+    },
+    {
+        "code": "54",
+        "id": 55,
+        "name": "Meurthe-et-Moselle",
+        "region_code": "41",
+        "slug": "meurthe et moselle"
+    },
+    {
+        "code": "55",
+        "id": 56,
+        "name": "Meuse",
+        "region_code": "41",
+        "slug": "meuse"
+    },
+    {
+        "code": "56",
+        "id": 57,
+        "name": "Morbihan",
+        "region_code": "53",
+        "slug": "morbihan"
+    },
+    {
+        "code": "57",
+        "id": 58,
+        "name": "Moselle",
+        "region_code": "41",
+        "slug": "moselle"
+    },
+    {
+        "code": "58",
+        "id": 59,
+        "name": "Nièvre",
+        "region_code": "26",
+        "slug": "nievre"
+    },
+    {
+        "code": "59",
+        "id": 60,
+        "name": "Nord",
+        "region_code": "31",
+        "slug": "nord"
+    },
+    {
+        "code": "60",
+        "id": 61,
+        "name": "Oise",
+        "region_code": "22",
+        "slug": "oise"
+    },
+    {
+        "code": "61",
+        "id": 62,
+        "name": "Orne",
+        "region_code": "25",
+        "slug": "orne"
+    },
+    {
+        "code": "62",
+        "id": 63,
+        "name": "Pas-de-Calais",
+        "region_code": "31",
+        "slug": "pas de calais"
+    },
+    {
+        "code": "63",
+        "id": 64,
+        "name": "Puy-de-Dôme",
+        "region_code": "83",
+        "slug": "puy de dome"
+    },
+    {
+        "code": "64",
+        "id": 65,
+        "name": "Pyrénées-Atlantiques",
+        "region_code": "72",
+        "slug": "pyrenees atlantiques"
+    },
+    {
+        "code": "65",
+        "id": 66,
+        "name": "Hautes-Pyrénées",
+        "region_code": "73",
+        "slug": "hautes pyrenees"
+    },
+    {
+        "code": "66",
+        "id": 67,
+        "name": "Pyrénées-Orientales",
+        "region_code": "91",
+        "slug": "pyrenees orientales"
+    },
+    {
+        "code": "67",
+        "id": 68,
+        "name": "Bas-Rhin",
+        "region_code": "42",
+        "slug": "bas rhin"
+    },
+    {
+        "code": "68",
+        "id": 69,
+        "name": "Haut-Rhin",
+        "region_code": "42",
+        "slug": "haut rhin"
+    },
+    {
+        "code": "69",
+        "id": 70,
+        "name": "Rhône",
+        "region_code": "82",
+        "slug": "rhone"
+    },
+    {
+        "code": "70",
+        "id": 71,
+        "name": "Haute-Saône",
+        "region_code": "43",
+        "slug": "haute saone"
+    },
+    {
+        "code": "71",
+        "id": 72,
+        "name": "Saône-et-Loire",
+        "region_code": "26",
+        "slug": "saone et loire"
+    },
+    {
+        "code": "72",
+        "id": 73,
+        "name": "Sarthe",
+        "region_code": "52",
+        "slug": "sarthe"
+    },
+    {
+        "code": "73",
+        "id": 74,
+        "name": "Savoie",
+        "region_code": "82",
+        "slug": "savoie"
+    },
+    {
+        "code": "74",
+        "id": 75,
+        "name": "Haute-Savoie",
+        "region_code": "82",
+        "slug": "haute savoie"
+    },
+    {
+        "code": "75",
+        "id": 76,
+        "name": "Paris",
+        "region_code": "11",
+        "slug": "paris"
+    },
+    {
+        "code": "76",
+        "id": 77,
+        "name": "Seine-Maritime",
+        "region_code": "23",
+        "slug": "seine maritime"
+    },
+    {
+        "code": "77",
+        "id": 78,
+        "name": "Seine-et-Marne",
+        "region_code": "11",
+        "slug": "seine et marne"
+    },
+    {
+        "code": "78",
+        "id": 79,
+        "name": "Yvelines",
+        "region_code": "11",
+        "slug": "yvelines"
+    },
+    {
+        "code": "79",
+        "id": 80,
+        "name": "Deux-Sèvres",
+        "region_code": "54",
+        "slug": "deux sevres"
+    },
+    {
+        "code": "80",
+        "id": 81,
+        "name": "Somme",
+        "region_code": "22",
+        "slug": "somme"
+    },
+    {
+        "code": "81",
+        "id": 82,
+        "name": "Tarn",
+        "region_code": "73",
+        "slug": "tarn"
+    },
+    {
+        "code": "82",
+        "id": 83,
+        "name": "Tarn-et-Garonne",
+        "region_code": "73",
+        "slug": "tarn et garonne"
+    },
+    {
+        "code": "83",
+        "id": 84,
+        "name": "Var",
+        "region_code": "93",
+        "slug": "var"
+    },
+    {
+        "code": "84",
+        "id": 85,
+        "name": "Vaucluse",
+        "region_code": "93",
+        "slug": "vaucluse"
+    },
+    {
+        "code": "85",
+        "id": 86,
+        "name": "Vendée",
+        "region_code": "52",
+        "slug": "vendee"
+    },
+    {
+        "code": "86",
+        "id": 87,
+        "name": "Vienne",
+        "region_code": "54",
+        "slug": "vienne"
+    },
+    {
+        "code": "87",
+        "id": 88,
+        "name": "Haute-Vienne",
+        "region_code": "74",
+        "slug": "haute vienne"
+    },
+    {
+        "code": "88",
+        "id": 89,
+        "name": "Vosges",
+        "region_code": "41",
+        "slug": "vosges"
+    },
+    {
+        "code": "89",
+        "id": 90,
+        "name": "Yonne",
+        "region_code": "26",
+        "slug": "yonne"
+    },
+    {
+        "code": "90",
+        "id": 91,
+        "name": "Territoire de Belfort",
+        "region_code": "43",
+        "slug": "territoire de belfort"
+    },
+    {
+        "code": "91",
+        "id": 92,
+        "name": "Essonne",
+        "region_code": "11",
+        "slug": "essonne"
+    },
+    {
+        "code": "92",
+        "id": 93,
+        "name": "Hauts-de-Seine",
+        "region_code": "11",
+        "slug": "hauts de seine"
+    },
+    {
+        "code": "93",
+        "id": 94,
+        "name": "Seine-Saint-Denis",
+        "region_code": "11",
+        "slug": "seine saint denis"
+    },
+    {
+        "code": "94",
+        "id": 95,
+        "name": "Val-de-Marne",
+        "region_code": "11",
+        "slug": "val de marne"
+    },
+    {
+        "code": "95",
+        "id": 96,
+        "name": "Val-d'Oise",
+        "region_code": "11",
+        "slug": "val doise"
+    },
+    {
+        "code": "971",
+        "id": 97,
+        "name": "Guadeloupe",
+        "region_code": "01",
+        "slug": "guadeloupe"
+    },
+    {
+        "code": "972",
+        "id": 98,
+        "name": "Martinique",
+        "region_code": "02",
+        "slug": "martinique"
+    },
+    {
+        "code": "973",
+        "id": 99,
+        "name": "Guyane",
+        "region_code": "03",
+        "slug": "guyane"
+    },
+    {
+        "code": "974",
+        "id": 100,
+        "name": "La Réunion",
+        "region_code": "04",
+        "slug": "la reunion"
+    },
+    {
+        "code": "991",
+        "id": 101,
+        "name": "Mayotte",
+        "region_code": "06",
+        "slug": "mayotte"
+    },
+    {
+        "code": "975",
+        "id": 102,
+        "name": "Saint-Pierre-et-Miquelon",
+        "region_code": "COM",
+        "slug": "saint pierre et miquelon"
+    },
+    {
+        "code": "977",
+        "id": 103,
+        "name": "Saint-Barthélemy",
+        "region_code": "COM",
+        "slug": "saint barthelemy"
+    },
+    {
+        "code": "978",
+        "id": 104,
+        "name": "Saint-Martin",
+        "region_code": "COM",
+        "slug": "saint martin"
+    },
+    {
+        "code": "982",
+        "id": 105,
+        "name": "Terres australes et antarctiques françaises",
+        "region_code": "COM",
+        "slug": "terres australes et antarctiques francaises"
+    },
+    {
+        "code": "986",
+        "id": 106,
+        "name": "Wallis et Futuna",
+        "region_code": "COM",
+        "slug": "wallis et futuna"
+    },
+    {
+        "code": "987",
+        "id": 107,
+        "name": "Polynésie française",
+        "region_code": "COM",
+        "slug": "polynesie francaise"
+    },
+    {
+        "code": "988",
+        "id": 108,
+        "name": "Nouvelle-Calédonie",
+        "region_code": "COM",
+        "slug": "nouvelle caledonie"
+    },
+    {
+        "code": "989",
+        "id": 109,
+        "name": "Île de Clipperton",
+        "region_code": "COM",
+        "slug": "ile de clipperton"
+    }
+]

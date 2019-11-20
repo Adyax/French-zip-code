@@ -1,1 +1,198 @@
-[{"id":1,"code":"01","cheflieu":"97105","name":"Guadeloupe","slug":"guadeloupe"},{"id":2,"code":"02","cheflieu":"97209","name":"Martinique","slug":"martinique"},{"id":3,"code":"03","cheflieu":"97302","name":"Guyane","slug":"guyane"},{"id":4,"code":"04","cheflieu":"97411","name":"La R\u00e9union","slug":"la reunion"},{"id":5,"code":"06","cheflieu":"97608","name":"Mayotte","slug":"mayotte"},{"id":6,"code":"11","cheflieu":"75056","name":"\u00cele-de-France","slug":"ile de france"},{"id":7,"code":"24","cheflieu":"45234","name":"Centre-Val de Loire","slug":"centre val de loire"},{"id":8,"code":"27","cheflieu":"21231","name":"Bourgogne-Franche-Comt\u00e9","slug":"bourgogne franche comte"},{"id":9,"code":"28","cheflieu":"76540","name":"Normandie","slug":"normandie"},{"id":10,"code":"32","cheflieu":"59350","name":"Hauts-de-France","slug":"hauts de france"},{"id":11,"code":"44","cheflieu":"67482","name":"Grand Est","slug":"grand est"},{"id":12,"code":"52","cheflieu":"44109","name":"Pays de la Loire","slug":"pays de la loire"},{"id":13,"code":"53","cheflieu":"35238","name":"Bretagne","slug":"bretagne"},{"id":14,"code":"75","cheflieu":"33063","name":"Nouvelle-Aquitaine","slug":"nouvelle aquitaine"},{"id":15,"code":"76","cheflieu":"31555","name":"Occitanie","slug":"occitanie"},{"id":16,"code":"84","cheflieu":"69123","name":"Auvergne-Rh\u00f4ne-Alpes","slug":"auvergne rhone alpes"},{"id":17,"code":"93","cheflieu":"13055","name":"Provence-Alpes-C\u00f4te d'Azur","slug":"provence alpes cote dazur"},{"id":18,"code":"94","cheflieu":"","name":"Corse","slug":"corse"},{"id":19,"code":"COM","cheflieu":"0","name":"Collectivit\u00e9s d'Outre-Mer","slug":"collectivites doutre mer"}]
+[
+    {
+        "cheflieu": "97105",
+        "code": "01",
+        "id": 1,
+        "name": "Guadeloupe",
+        "slug": "guadeloupe"
+    },
+    {
+        "cheflieu": "97209",
+        "code": "02",
+        "id": 2,
+        "name": "Martinique",
+        "slug": "martinique"
+    },
+    {
+        "cheflieu": "97302",
+        "code": "03",
+        "id": 3,
+        "name": "Guyane",
+        "slug": "guyane"
+    },
+    {
+        "cheflieu": "97411",
+        "code": "04",
+        "id": 4,
+        "name": "La Réunion",
+        "slug": "la reunion"
+    },
+    {
+        "cheflieu": "97608",
+        "code": "06",
+        "id": 5,
+        "name": "Mayotte",
+        "slug": "mayotte"
+    },
+    {
+        "cheflieu": "75056",
+        "code": "11",
+        "id": 6,
+        "name": "Île-de-France",
+        "slug": "ile de france"
+    },
+    {
+        "cheflieu": "45234",
+        "code": "24",
+        "id": 7,
+        "name": "Centre",
+        "slug": "centre"
+    },
+    {
+        "cheflieu": "21231",
+        "code": "26",
+        "id": 8,
+        "name": "Bourgogne",
+        "slug": "bourgogne"
+    },
+    {
+        "cheflieu": "25056",
+        "code": "43",
+        "id": 9,
+        "name": "Franche-Comté",
+        "slug": "franche comte"
+    },
+    {
+        "cheflieu": "76540",
+        "code": "23",
+        "id": 10,
+        "name": "Haute-Normandie",
+        "slug": "haute normandie"
+    },
+    {
+        "cheflieu": "14118",
+        "code": "25",
+        "id": 11,
+        "name": "Basse-Normandie",
+        "slug": "basse normandie"
+    },
+    {
+        "cheflieu": "59350",
+        "code": "31",
+        "id": 12,
+        "name": "Nord-Pas-de-Calais",
+        "slug": "nord pas de calais"
+    },
+    {
+        "cheflieu": "80021",
+        "code": "22",
+        "id": 13,
+        "name": "Picardie",
+        "slug": "picardie"
+    },
+    {
+        "cheflieu": "57463",
+        "code": "41",
+        "id": 14,
+        "name": "Lorraine",
+        "slug": "lorraine"
+    },
+    {
+        "cheflieu": "67482",
+        "code": "42",
+        "id": 15,
+        "name": "Alsace",
+        "slug": "alsace"
+    },
+    {
+        "cheflieu": "10387",
+        "code": "21",
+        "id": 16,
+        "name": "Champagne-Ardenne",
+        "slug": "champagne ardenne"
+    },
+    {
+        "cheflieu": "44109",
+        "code": "52",
+        "id": 17,
+        "name": "Pays de la Loire",
+        "slug": "pays de la loire"
+    },
+    {
+        "cheflieu": "35238",
+        "code": "53",
+        "id": 18,
+        "name": "Bretagne",
+        "slug": "bretagne"
+    },
+    {
+        "cheflieu": "33063",
+        "code": "72",
+        "id": 19,
+        "name": "Aquitaine",
+        "slug": "aquitaine"
+    },
+    {
+        "cheflieu": "86194",
+        "code": "54",
+        "id": 20,
+        "name": "Poitou-Charentes",
+        "slug": "poitou charentes"
+    },
+    {
+        "cheflieu": "87085",
+        "code": "74",
+        "id": 21,
+        "name": "Limousin",
+        "slug": "limousin"
+    },
+    {
+        "cheflieu": "31555",
+        "code": "73",
+        "id": 22,
+        "name": "Midi-Pyrénées",
+        "slug": "midi pyrenees"
+    },
+    {
+        "cheflieu": "34172",
+        "code": "91",
+        "id": 23,
+        "name": "Languedoc-Roussillon",
+        "slug": "languedoc roussillon"
+    },
+    {
+        "cheflieu": "38185",
+        "code": "82",
+        "id": 24,
+        "name": "Rhône-Alpes",
+        "slug": "rhone alpes"
+    },
+    {
+        "cheflieu": "63113",
+        "code": "83",
+        "id": 25,
+        "name": "Auvergne",
+        "slug": "auvergne"
+    },
+    {
+        "cheflieu": "13055",
+        "code": "93",
+        "id": 26,
+        "name": "Provence-Alpes-Côte d'Azur",
+        "slug": "provence alpes cote dazur"
+    },
+    {
+        "cheflieu": "20090",
+        "code": "94",
+        "id": 27,
+        "name": "Corse",
+        "slug": "corse"
+    },
+    {
+        "cheflieu": "0",
+        "code": "COM",
+        "id": 28,
+        "name": "Collectivités d'Outre-Mer",
+        "slug": "collectivites doutre mer"
+    }
+]
